@@ -1,0 +1,127 @@
+<%- include("partials/header", { postSuccess: postSuccess, postDeleted: postDeleted}) %>
+
+    <div class="intro-box">
+        <div class="content-box">
+            <div class="title-container">
+                <h1 class="main-title"><span>Drop your <strong class="strong-title">thoughts</strong> here</span></h1>
+                <div class="main-info">A place where you share your experiences, your worldview and more!</div>
+                <button data-modal-target="#modal" class="main-button">Get Started</button>
+                <div class="shining-button"></div>
+            </div>
+            <div class="img-box">
+                <img class="people-img" src="/images/people-talking.png" alt="people talking"/>
+                <div class="shining-img"></div>
+            </div>
+        </div>
+    </div>
+    <div class="down-chevron"><a href="#down-menu"><img class="chevron" src="/images/chevron-down-small.svg" height="60" alt="chevron down small"/></a></div>
+</div>
+<div id="posts-container" class="posts">
+    <div class="separate">
+        <div class="separate-img">
+            <img src="/images/on-computer.png" class="sep-img" alt="woman on computer"/>
+            <div class="shining-sep"></div>
+        </div>
+        <div class="separate-text">
+            <h2 class="main-title">Take a minute to <strong class="strong-sep">calm down</strong></h2>
+            <p>We are what our thoughts have made us, so take care about what you think.
+                Words are secondary. Thoughts live, they travel far.
+            </p>
+            <p style="color:#296DF5"><i>Swami Vivekananda</i></p>
+        </div>
+    </div>
+    <div id="down-menu" class="main-menu sticky-menu" style="background-color: #303030;">
+        <div class="description">
+            Your daily diary
+        </div>
+        <div class="menu">
+            <div><a class="menu-item" href="/">Home</a></div>
+            <div><a class="menu-item" href="/about">About</a></div>
+            <div><a class="menu-item" href="/contact">Contact</a></div>
+        </div>
+    </div>
+    <div class="posts-container">
+        <% for(var i=0; i<posts.length;i++) { %>
+            <div class="post">
+                <div class="post-content">                    
+                    <button data-modal-target="#modal-view" 
+                      class="post-title"
+                      view-post-title="<%= posts[i].postTitle %>"
+                      view-post-author="<%= posts[i].postAuthor %>"
+                      view-post-date="<%= posts[i].postDate %>"
+                      view-post-text="<%= posts[i].postText %>">
+                        <%= posts[i].postTitle %>
+                    </button>                   
+                    <div class="post-author"><%= posts[i].postAuthor %></div>
+                    <div class="post-author"><%= posts[i].postDate %></div>
+                    <div class="post-text"><%= posts[i].postText %></div>
+                </div>
+                <div class="post-actions">
+                    <button data-modal-target="#modal-edit" 
+                      class="input-button input-clear edit-button" 
+                      data-post-index="<%= i %>" 
+                      data-post-title="<%= posts[i].postTitle %>"
+                      data-post-text="<%= posts[i].postText %>">
+                        Edit
+                    </button>
+                    <form action="/delete/<%=posts[i].postId%>" method="POST">
+                        <input class="input-button input-create" type="submit" value="Delete">
+                    </form>       
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+<div class="modal" id="modal">
+    <div class="modal-header">
+        <div class="modal-title">Create a post</div>
+        <button data-close-button class="close-button">&times</button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-content">
+            <form action="/submit" method="POST">
+                <input class="input" type="text" name="postTitle" placeholder="Post Title" maxlength="30">
+                <input class="input" type="text" name="postAuthor" placeholder="Your Name" maxlength="20">
+                <textarea name="postText" class="input-text" placeholder="Write your thoughts"></textarea>
+                <div class="input-div">
+                    <input class="input-button input-clear" type="reset" value="Clear">
+                    <input class="input-button input-create" type="submit" value="Create">
+                </div>          
+            </form>
+        </div>       
+    </div>
+</div>
+<div class="modal" id="modal-edit">
+    <div class="modal-header">
+        <div class="modal-title">Edit post</div>
+        <button data-close-button class="close-button">&times</button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-content">
+            <form action="/edit" method="POST">
+                <input id="post-title" class="input" type="text" name="postTitle" placeholder="Post Title" maxlength="30">
+                <textarea id="post-text" name="postText" class="input-text" placeholder="Write your thoughts"></textarea>
+                <div class="input-div">
+                    <input class="input-button input-clear" type="reset" value="Clear">
+                    <input class="input-button input-create" type="submit" value="Done">
+                </div>    
+                <input id="post-index" name="postIndex" style="display:none" type="text">      
+            </form>
+        </div>       
+    </div>
+</div>
+<div class="modal-view" id="modal-view">
+    <div class="modal-header">
+        <div id="view-title" class="modal-title-view"></div>
+        <button data-close-button class="close-button-view">&times</button>
+    </div>
+    <div class="view-modal-body">
+        <div class="modal-content-view">
+            <div id="post-author" class="post-author"></div>
+            <div id="post-date" class="post-author"></div>
+            <div id="view-post-text" class="post-text post-text-view"></div>
+        </div>
+    </div>
+</div>
+<div id="overlay"></div>
+<%- include("partials/footer", {year: year}) %>

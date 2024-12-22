@@ -1,0 +1,37 @@
+<%- include('partials/header.ejs', { postSuccess: postSuccess, postDeleted: postDeleted}) %>
+    <div class="intro-box">
+        <div class="about-content-box">
+            <img class="about-img" src="/images/letterb.png"/>
+            <div class="title-container">
+                <h1 class="main-title"><span>This is a <strong class="strong-title">simple blog</strong> for 
+                    your <strong class="strong-title">simple thoughts!</strong></span></h1>
+                <div class="shining-img-2"></div>
+                <div class="about-main-info">Click on the plus button on the right-bottom of the page or in the 
+                    "Get Started" button to create a new post. You can edit or delete the posts too!
+                </div>
+                <div class="about-main-info"><b>Remember to be respectful!</b></div>
+            </div>
+        </div>
+    </div>   
+</div>
+<div class="modal" id="modal">
+    <div class="modal-header">
+        <div class="modal-title">Create a post</div>
+        <button data-close-button class="close-button">&times</button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-content">
+            <form action="/submit" method="POST">
+                <input class="input" type="text" name="postTitle" placeholder="Post Title">
+                <input class="input" type="text" name="postAuthor" placeholder="Your Name">
+                <textarea name="postText" class="input-text" placeholder="Write your thoughts"></textarea>
+                <div class="input-div">
+                    <input class="input-button input-clear" type="reset" value="Clear">
+                    <input class="input-button input-create" type="submit" value="Create">
+                </div>          
+            </form>
+        </div>       
+    </div>
+</div>
+<div id="overlay"></div>
+<%- include('partials/footer.ejs', {year: year}) %>
