@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png" /> <!-- On Chrome, the favicon only appears if it is png -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/images/site.webmanifest" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <title>A Blog</title>
+</head>
+
+<body>
+    <header>
+        <div class="plus-div">
+            <button data-modal-target="#modal" class="plus-button">
+                <img class="desaturate-img" src="/images/plus-sign.png" height="15"/>
+            </button>
+        </div>
+        <% if(postSuccess) {%>
+        <div class="post-succeded">
+            <div class="post-succeded-message">The post has been saved!</div>
+            <button span-close-button class="close-button">&times</button>
+        </div>
+        <% } %>
+        <% if(postDeleted) {%>
+            <div class="post-succeded">
+                <div class="post-succeded-message">The post has been deleted!</div>
+                <button span-close-button class="close-button">&times</button>
+            </div>
+            <% } %>
+    </header>
+    <div id="sidebar" class="sidebar">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </div>
+    <div class="intro-container">
+        <div class="shining"></div>
+        <div class="main-menu">
+            <div class="description">
+                Your daily diary
+            </div>
+            <div class="menu">
+                <div><a class="menu-item" href="/">Home</a></div>
+                <div><a class="menu-item" href="/about">About</a></div>
+                <div><a class="menu-item" href="/contact">Contact</a></div>
+            </div>
+            <div class="menu-button">
+                <button data-modal-target="#sidebar">
+                    <img src="/images/three-lines.svg" height="30px" class="desaturate-img"/>
+                </button>
+            </div>
+        </div>
+    <main>
+
+    

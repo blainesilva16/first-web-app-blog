@@ -1,0 +1,57 @@
+<%- include("partials/header.ejs", { postSuccess: postSuccess, postDeleted: postDeleted}) %>
+    <div class="intro-box">
+        <div class="content-box-opposite">
+            <div class="img-box">
+                <div class="shining-img"></div>
+                <img class="people-img" src="/images/contact-image.png" alt="author image"/>
+            </div>
+            <div class="title-container">
+                <h1 class="main-title"><span>Hi! Welcome to my <strong class="strong-title">first</strong> blog!</span></h1>
+                <div class="shining-img-2"></div>
+                <div class="main-info">I'm Blaine Silva, 23 years old, a programming-lover who created this blog 
+                    for you to share your points of view about everything!
+                </div>
+                <div class="main-info"><b>Remember to be respectful!</b></div>
+                <div class="shining-button"></div>
+            </div>
+        </div>
+    </div>
+    <div class="down-chevron">
+        <a href="https://www.instagram.com/blainesilva16">
+            <div class="contact-links chevron">
+                <img class="desaturate-img" src="/images/insta-logo.png" height="35" width="35" alt="Instagram logo"/>
+            </div>         
+        </a>
+        <a href="https://www.linkedin.com/in/blaine-silva-0ab04a178">
+            <div class="contact-links chevron">
+                <img class="desaturate-img" src="/images/linkedin-logo.png" height="35" width="35" alt="Linkedin Logo"/>
+            </div>
+        </a>
+        <a href="https://github.com/blainesilva16">
+            <div class="contact-links chevron">
+                <img class="desaturate-img" src="/images/github-logo.png" height="35" width="35" alt="chevron down small"/>
+            </div>
+        </a>
+    </div>
+</div>
+<div class="modal" id="modal">
+    <div class="modal-header">
+        <div class="modal-title">Create a post</div>
+        <button data-close-button class="close-button">&times</button>
+    </div>
+    <div class="modal-body">
+        <div class="modal-content">
+            <form action="/submit" method="POST">
+                <input class="input" type="text" name="postTitle" placeholder="Post Title">
+                <input class="input" type="text" name="postAuthor" placeholder="Your Name">
+                <textarea name="postText" class="input-text" placeholder="Write your thoughts"></textarea>
+                <div class="input-div">
+                    <input class="input-button input-clear" type="reset" value="Clear">
+                    <input class="input-button input-create" type="submit" value="Create">
+                </div>          
+            </form>
+        </div>       
+    </div>
+</div>
+<div id="overlay"></div>s
+<%- include("partials/footer.ejs", {year: year}) %>
