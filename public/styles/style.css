@@ -14,9 +14,6 @@ button {
 html{
     scroll-behavior: smooth;
     font-family: "Plus Jakarta Sans", serif;
-    /* scrollbar-width: thin;
-    scrollbar-color:  #303030; */
-    /* cursor: url("/images/gray-circle.png"), auto; TRY TO CHANGE THIS */
 }
 
 html::-webkit-scrollbar {
@@ -293,7 +290,6 @@ p {
 }
 
 .main-menu {
-    /* background-color: #303030; */
     color:white;
     font-weight: 300;
     width: 100%;
@@ -324,7 +320,6 @@ p {
     display: flex;
     justify-content: flex-end;
     gap:10%;
-    /* align-content: center; */
     width: 30%;
     height: 30px;
 }
@@ -548,10 +543,8 @@ p {
 .posts {
     min-height:200vh;
     width: 100%;
-    /* background-color: #303030; */
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     margin-bottom: 5%;
 }
@@ -702,12 +695,6 @@ p {
 .view-modal-body {
     margin:0 2%
 }
-
-/* .title-container:hover ~ .main-info {  When hovering over "hover-target" 
-    display: block;  Show the hidden information 
-    
-} */
-
 
 @keyframes gradient-animation {
     0% {
